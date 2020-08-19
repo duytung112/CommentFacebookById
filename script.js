@@ -2,9 +2,7 @@ var counter = 0;
 		$("#start-spam").click(e => {
 			let comments = $('#spam-message').val().split('|');
             let targets = $('#spam-target').val().split(',');
-            let timer = $('$timer').val();
-            timer = timer * 1000;
-            console.log(timer);
+            let timer = $('#timer').val()*1000;
 			targets.forEach(target => {
 				$.get("https://graph.facebook.com/" + target, {
 					access_token: $('#access-token').val()
@@ -27,7 +25,7 @@ var counter = 0;
 								}).fail(() => {
 									$('#logText').append('<span style="color: red;">Failed to comment on ' + post.post_id + '</span><br/>');
 								});
-							}, counter * 2000 + Math.random() * 1000);
+							}, counter * timer);
 						});
 					});
 				});
