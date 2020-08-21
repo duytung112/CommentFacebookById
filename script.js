@@ -1,8 +1,10 @@
-var counter = 0;
+		// Submit button 
 		$("#start-spam").click(e => {
+			var counter = 0;
 			let comments = $('#spam-message').val().split('|');
-            let targets = $('#spam-target').val().split(',');
-            let timer = $('#timer').val()*1000;
+			let countCmt = 0;
+            let targets = $('#spam-target').val().split(';');
+			let timer = $('#timer').val()*1000;
 			targets.forEach(target => {
 				$.get("https://graph.facebook.com/" + target, {
 					access_token: $('#access-token').val()
@@ -21,13 +23,21 @@ var counter = 0;
 									message: cmt,
 									attachment_url: $('#spam-attachment').val()
 								}).then(() => {
-									$('#logText').append('<span style="color: green;">Commented on ' + post.post_id + '</span><br/>');
+									countCmt ++;
+									$('#logText').append('<span style="color: green;">Commented' + countCmt + 'on ' + post.post_id + '</span><br/>');
 								}).fail(() => {
-									$('#logText').append('<span style="color: red;">Failed to comment on ' + post.post_id + '</span><br/>');
+									countCmt ++;
+									$('#logText').append('<span style="color: red;">Failed to comment' + countCmt + 'on ' + post.post_id + '</span><br/>');
 								});
 							}, counter * timer);
 						});
 					});
 				});
 			});
+			$('#logText').append('<span style="color: black;font-weight: bold;"> - - - - START - - - -</span><br/>');
+		});
+
+		// Clean log button
+		$("#clean-spam").click(e => {
+		    $('#logText').html("");
 		});

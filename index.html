@@ -27,7 +27,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
-							<label for="first">Spam target</label>
+							<label for="first">Facebook Id (Group, Page, Profile separeted by ";")</label>
 							<input type="text" class="form-control" placeholder="User ID/Fanpage ID/Group ID/..."
 								id="spam-target">
 						</div>
@@ -44,8 +44,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
-							<label for="last">Message</label>
-							<textarea type="text" class="form-control" placeholder="Comment..."
+							<label for="last">Message (separeted by "|")</label>
+							<textarea type="text" style="height: 200px;" class="form-control" placeholder="Comment..."
 								id="spam-message"></textarea>
 						</div>
 					</div>
@@ -72,6 +72,7 @@
 		</div>
 
 		<button id="start-spam" class="btn btn-primary">Submit</button>
+		<button id="clean-spam" class="btn btn-success">Clean</button>
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
