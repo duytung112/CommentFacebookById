@@ -24,10 +24,10 @@
 									attachment_url: $('#spam-attachment').val()
 								}).then(() => {
 									countCmt ++;
-									$('#logText').append('<span style="color: green;">Commented' + countCmt + 'on ' + post.post_id + '</span><br/>');
+									$('#logText').append('<span style="color: green;">Commented ' + countCmt + ' on ' + post.post_id + '</span><br/>');
 								}).fail(() => {
 									countCmt ++;
-									$('#logText').append('<span style="color: red;">Failed to comment' + countCmt + 'on ' + post.post_id + '</span><br/>');
+									$('#logText').append('<span style="color: red;">Failed to comment ' + countCmt + ' on ' + post.post_id + '</span><br/>');
 								});
 							}, counter * timer);
 						});
